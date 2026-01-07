@@ -2,7 +2,8 @@
 
 **Panel de métricas SaaS en tiempo real** | **Real-time SaaS metrics dashboard**
 
-![Dashboard Screenshot](./screenshot.png)
+<img width="1437" height="1230" alt="image" src="https://github.com/user-attachments/assets/18566032-ba8e-4e9c-bdd6-8a63577c8434" />
+
 
 ---
 
@@ -17,10 +18,10 @@ SaaS Pulse es una aplicación de demostración que visualiza métricas de negoci
 - **4 Tarjetas KPI**: Ingresos mensuales, usuarios activos, tasa de abandono, nuevos clientes
 - **Gráfico de ingresos**: Chart.js con gradiente y animaciones suaves
 - **Selector de rango temporal**: 7 días / 30 días / 90 días
-- **Tabla de transacciones**: Datos de clientes españoles realistas
+- **Tabla de transacciones**: Datos de clientes de ejemplo
 - **Modo en vivo**: Auto-actualización cada 3 segundos
 - **Cambio de idioma**: Toggle español/inglés
-- **Datos españoles**: Nombres, emails y moneda en euros (€)
+- **Datos**: Nombres, emails y moneda en euros (€)
 
 ### Stack Tecnológico
 
@@ -40,40 +41,11 @@ SaaS Pulse es una aplicación de demostración que visualiza métricas de negoci
 | **Tailwind CSS v4** | Estilos utilitarios |
 | **Chart.js** | Gráficos interactivos |
 
-### Inicio Rápido (Desarrollo)
+### Despliegue
+El backend está desplegado en una instancia gratuita de **Render**. Si la aplicación lleva tiempo inactiva, **la primera carga de datos puede tardar hasta 50 segundos** mientras el servidor "despierta" (Cold Start). Las siguientes peticiones serán instantáneas.
 
-```bash
-# Terminal 1 - Backend
-cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-
-# Terminal 2 - Frontend  
-cd frontend
-npm install
-npm run dev
-```
-
-- **Dashboard**: http://localhost:5173
-- **API Docs**: http://localhost:8000/docs
-
-### Despliegue en Producción
-
-#### Backend (Render)
-1. Crear nuevo Web Service en Render
-2. Conectar el repositorio
-3. Configurar:
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-   - **Root Directory**: `backend`
-
-#### Frontend (Vercel)
-1. Importar proyecto en Vercel
-2. Configurar:
-   - **Root Directory**: `frontend`
-   - **Environment Variable**: `VITE_API_URL` = URL de tu backend en Render
+- **Dashboard**: https://saas-pulse-one.vercel.app
+- **API Docs**: https://saas-pulse-api.onrender.com/docs
 
 ### Estructura del Proyecto
 
@@ -113,10 +85,10 @@ SaaS Pulse is a demo application that visualizes simulated business metrics in r
 - **4 KPI Cards**: Monthly revenue, active users, churn rate, new customers
 - **Revenue chart**: Chart.js with gradient fill and smooth animations
 - **Time range selector**: 7 days / 30 days / 90 days
-- **Transactions table**: Realistic Spanish customer data
+- **Transactions table**: Example customer data
 - **Live mode**: Auto-refresh every 3 seconds
 - **Language toggle**: Spanish/English switch
-- **Spanish data**: Names, emails, and Euro currency (€)
+- **Data**: Names, emails, and Euro currency (€)
 
 ### Tech Stack
 
@@ -136,40 +108,11 @@ SaaS Pulse is a demo application that visualizes simulated business metrics in r
 | **Tailwind CSS v4** | Utility-first styling |
 | **Chart.js** | Interactive charts |
 
-### Quick Start (Development)
+### Deployment
+The backend is deployed on a free Render instance. If the application has been inactive, the initial data load may take up to 50 seconds while the server 'wakes up' (Cold Start). Subsequent requests will be instantaneous.
 
-```bash
-# Terminal 1 - Backend
-cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-
-# Terminal 2 - Frontend
-cd frontend
-npm install
-npm run dev
-```
-
-- **Dashboard**: http://localhost:5173
-- **API Docs**: http://localhost:8000/docs
-
-### Production Deployment
-
-#### Backend (Render)
-1. Create new Web Service on Render
-2. Connect repository
-3. Configure:
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-   - **Root Directory**: `backend`
-
-#### Frontend (Vercel)
-1. Import project on Vercel
-2. Configure:
-   - **Root Directory**: `frontend`
-   - **Environment Variable**: `VITE_API_URL` = Your Render backend URL
+- **Dashboard**: https://saas-pulse-one.vercel.app
+- **API Docs**: https://saas-pulse-api.onrender.com/docs
 
 ### API Endpoints
 
