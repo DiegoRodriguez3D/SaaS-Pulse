@@ -2,7 +2,7 @@
 
 **Panel de métricas SaaS en tiempo real** | **Real-time SaaS metrics dashboard**
 
-![Dashboard Screenshot](./screenshot.png)
+<img width="1388" height="1295" alt="image" src="https://github.com/user-attachments/assets/cee2d3c0-183d-4d30-b4b1-ec9abcc6e358" />
 
 ---
 
