@@ -77,16 +77,17 @@
     }
   });
 
-  const formattedMRR = $derived(
-    kpis
-      ? kpis.mrr.toLocaleString("es-ES", {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        }) +
-          " " +
-          t.currency
-      : "-",
-  );
+  const formattedMRR = $derived.by(() => {
+    if (!kpis) return "-";
+    return (
+      kpis.mrr.toLocaleString("es-ES", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }) +
+      " " +
+      t.currency
+    );
+  });
 </script>
 
 <Header {isLive} {loading} onRefresh={fetchData} onToggleLive={toggleLive} />
