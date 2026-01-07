@@ -14,7 +14,6 @@
 </script>
 
 <header class="mb-8">
-  <!-- Top bar with logo and controls -->
   <div
     class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
   >
@@ -31,7 +30,6 @@
     </div>
 
     <div class="flex items-center gap-3">
-      <!-- Language Toggle -->
       <button
         onclick={() => i18n.toggle()}
         class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-700/50 text-slate-300
@@ -40,7 +38,6 @@
         {i18n.language === "es" ? "🇪🇸 ES" : "🇬🇧 EN"}
       </button>
 
-      <!-- Live Toggle -->
       <button
         onclick={onToggleLive}
         class="flex items-center gap-2 px-4 py-2 rounded-lg transition-all {isLive
@@ -62,7 +59,6 @@
         {isLive ? t.live : t.paused}
       </button>
 
-      <!-- Refresh Button -->
       <button
         onclick={onRefresh}
         disabled={loading}

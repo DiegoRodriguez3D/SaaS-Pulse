@@ -20,7 +20,6 @@
   let error = $state<string | null>(null);
   let pollingInterval: ReturnType<typeof setInterval> | null = null;
 
-  // Selected time range for chart
   let selectedRange = $state("30d");
   const ranges = [
     { value: "7d", label: "7 días" },
@@ -98,13 +97,9 @@
   >
     <p class="font-medium">Error al conectar con la API</p>
     <p class="text-sm mt-1">{error}</p>
-    <p class="text-sm mt-2 text-red-300">
-      Asegúrate de que el backend está corriendo en http://localhost:8000
-    </p>
   </div>
 {/if}
 
-<!-- KPI Cards Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
   <KpiCard
     title={t.monthlyRevenue}
@@ -133,7 +128,6 @@
   />
 </div>
 
-<!-- Chart with Range Selector -->
 <div class="mb-6">
   <div class="flex items-center justify-between mb-4">
     <h2 class="text-lg font-semibold text-white">{t.revenueTrend}</h2>
@@ -154,10 +148,8 @@
   <RevenueChart data={chartData} title="" currency={t.currency} />
 </div>
 
-<!-- Transactions Table -->
 <TransactionsTable {transactions} />
 
-<!-- Footer -->
 <footer class="mt-12 text-center text-slate-500 text-sm">
   <p>{t.footer}</p>
 </footer>

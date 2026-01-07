@@ -1,6 +1,5 @@
 """
-SaaS Pulse API - FastAPI Application
-Real-time SaaS metrics visualization backend.
+SaaS Pulse API
 """
 
 from datetime import datetime
@@ -17,11 +16,9 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# CORS configuration - allow all origins for demo deployment
-# In production, replace with specific domains
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows Vercel, localhost, and any domain
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -30,7 +27,6 @@ app.add_middleware(
 
 @app.get("/api/status", response_model=HealthStatus, tags=["Health"])
 async def health_check() -> HealthStatus:
-    """API health check endpoint."""
     return HealthStatus(
         status="healthy",
         timestamp=datetime.now().isoformat(),
@@ -40,10 +36,6 @@ async def health_check() -> HealthStatus:
 
 @app.get("/api/kpi/summary", response_model=KPISummary, tags=["KPIs"])
 async def get_kpi_summary() -> KPISummary:
-    """
-    Get current KPI summary metrics.
-    Returns MRR, active users, churn rate, and new customers.
-    """
     return generate_kpi_summary()
 
 
@@ -52,10 +44,6 @@ async def get_kpi_history(
     range: str = Query(default="30d", regex="^\\d+d$", description="Time range (e.g., 7d, 30d, 90d)"),
     metric: str = Query(default="revenue", description="Metric to retrieve")
 ) -> HistoryResponse:
-    """
-    Get historical time series data for charts.
-    Data is generated using Pandas for demonstration.
-    """
     range_days = int(range.replace("d", ""))
     return generate_history_data(range_days=range_days, metric=metric)
 
@@ -64,5 +52,4 @@ async def get_kpi_history(
 async def get_transactions(
     limit: int = Query(default=5, ge=1, le=20, description="Number of transactions to return")
 ) -> TransactionsResponse:
-    """Get recent transactions list."""
     return generate_transactions(count=limit)

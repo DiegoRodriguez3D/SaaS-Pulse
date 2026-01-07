@@ -1,6 +1,5 @@
 /**
  * API client for SaaS Pulse backend.
- * Type-safe functions for all endpoints.
  */
 
 const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000') + '/api';

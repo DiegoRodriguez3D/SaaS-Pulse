@@ -1,27 +1,20 @@
 /**
- * Internationalization store for UI translations.
+ * Internationalization store.
  */
 
 type Language = 'es' | 'en';
 
 interface Translations {
-    // Header
     title: string;
     subtitle: string;
     live: string;
     paused: string;
     refresh: string;
-
-    // KPI Cards
     monthlyRevenue: string;
     activeUsers: string;
     churnRate: string;
     newCustomers: string;
-
-    // Chart
     revenueTrend: string;
-
-    // Table
     recentTransactions: string;
     customer: string;
     plan: string;
@@ -30,11 +23,7 @@ interface Translations {
     date: string;
     completed: string;
     pending: string;
-
-    // Footer
     footer: string;
-
-    // Currency
     currency: string;
 }
 
@@ -58,7 +47,7 @@ const translations: Record<Language, Translations> = {
         date: 'Fecha',
         completed: 'completado',
         pending: 'pendiente',
-        footer: 'Desarrollado con FastAPI + SvelteKit • Prueba de Concepto',
+        footer: 'Desarrollado con FastAPI + SvelteKit',
         currency: '€',
     },
     en: {
@@ -80,7 +69,7 @@ const translations: Record<Language, Translations> = {
         date: 'Date',
         completed: 'completed',
         pending: 'pending',
-        footer: 'Built with FastAPI + SvelteKit • Proof of Concept',
+        footer: 'Built with FastAPI + SvelteKit',
         currency: '€',
     }
 };

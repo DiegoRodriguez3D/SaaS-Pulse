@@ -1,15 +1,14 @@
 """
-Mock data configuration for realistic SaaS demo.
-All sample data is defined here for consistency and maintainability.
+Mock data configuration.
 """
 
 from dataclasses import dataclass
-from typing import List
+import unicodedata
 
 PLANS = [
-    {"name": "Básico", "price": 29, "weight": 50},      # Most common
+    {"name": "Básico", "price": 29, "weight": 50},
     {"name": "Profesional", "price": 99, "weight": 35},
-    {"name": "Empresa", "price": 299, "weight": 15},    # Least common
+    {"name": "Empresa", "price": 299, "weight": 15},
 ]
 
 SAMPLE_CUSTOMERS = [
@@ -41,7 +40,7 @@ EMAIL_DOMAINS = [
     "empresadigital.es",
 ]
 
-# Realistic KPI ranges for a growing SaaS
+
 @dataclass
 class KPIRanges:
     mrr_min: float = 15000.0
@@ -55,30 +54,25 @@ class KPIRanges:
     mrr_growth_min: float = 3.0
     mrr_growth_max: float = 18.0
 
-KPI_CONFIG = KPIRanges()
 
-# Revenue time series configuration
 @dataclass  
 class RevenueConfig:
-    base_daily_revenue: float = 900.0  # Base daily revenue
-    growth_factor: float = 1.5         # Daily growth trend
-    volatility: float = 50.0           # Random daily variance (+/-)
-    weekend_dip: float = 0.7           # Weekend revenue multiplier
+    base_daily_revenue: float = 900.0
+    growth_factor: float = 1.5
+    volatility: float = 50.0
+    weekend_dip: float = 0.7
 
+
+KPI_CONFIG = KPIRanges()
 REVENUE_CONFIG = RevenueConfig()
 
 
 def generate_email(first_name: str, last_name: str, domain: str) -> str:
-    """Generate a realistic email from name."""
-    # Normalize: remove accents, lowercase
-    import unicodedata
-    
     def normalize(s: str) -> str:
         nfkd = unicodedata.normalize('NFKD', s)
         return ''.join(c for c in nfkd if not unicodedata.combining(c)).lower()
     
     first = normalize(first_name)
-    # Take first part of last name
     last = normalize(last_name.split()[0])
     
     return f"{first}.{last}@{domain}"

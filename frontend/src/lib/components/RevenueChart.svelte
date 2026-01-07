@@ -30,7 +30,6 @@
   let canvas: HTMLCanvasElement;
   let chart: Chart | null = null;
 
-  // Register Chart.js components including LineController
   Chart.register(
     CategoryScale,
     LinearScale,
@@ -46,7 +45,6 @@
   function createChart() {
     if (!canvas) return;
 
-    // Destroy existing chart first
     if (chart) {
       chart.destroy();
       chart = null;
@@ -57,7 +55,6 @@
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Create gradient
     const gradient = ctx.createLinearGradient(0, 0, 0, 300);
     gradient.addColorStop(0, "rgba(99, 102, 241, 0.3)");
     gradient.addColorStop(1, "rgba(99, 102, 241, 0)");
@@ -88,9 +85,7 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        animation: {
-          duration: 750,
-        },
+        animation: { duration: 750 },
         plugins: {
           legend: { display: false },
           tooltip: {
@@ -145,16 +140,9 @@
     }
   });
 
-  // Watch for data changes
   $effect(() => {
-    const _dataLength = data.length; // Track data changes
-
-    // Only recreate if we have a canvas and data
-    if (canvas && _dataLength > 0) {
-      // Small delay to ensure DOM is ready
-      requestAnimationFrame(() => {
-        createChart();
-      });
+    if (canvas && data.length > 0) {
+      requestAnimationFrame(() => createChart());
     }
   });
 </script>
