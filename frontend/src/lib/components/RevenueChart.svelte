@@ -27,8 +27,10 @@
     title = "Evolución de Ingresos",
     currency = "€",
   }: Props = $props();
+
   let canvas: HTMLCanvasElement;
   let chart: Chart | null = null;
+  let mounted = $state(false);
 
   Chart.register(
     CategoryScale,
@@ -43,7 +45,7 @@
   );
 
   function createChart() {
-    if (!canvas) return;
+    if (!canvas || !mounted) return;
 
     if (chart) {
       chart.destroy();
@@ -128,9 +130,7 @@
   }
 
   onMount(() => {
-    if (data.length > 0) {
-      createChart();
-    }
+    mounted = true;
   });
 
   onDestroy(() => {
@@ -141,8 +141,9 @@
   });
 
   $effect(() => {
-    if (canvas && data.length > 0) {
-      requestAnimationFrame(() => createChart());
+    const hasData = data.length > 0;
+    if (mounted && hasData && canvas) {
+      createChart();
     }
   });
 </script>
@@ -155,16 +156,16 @@
       {title}
     </h3>
   {/if}
-  {#if data.length === 0}
-    <div class="h-72 flex items-center justify-center text-slate-500">
-      <div class="text-center">
-        <div class="animate-pulse text-4xl mb-2">📊</div>
-        <p>Cargando datos...</p>
+  <div class="h-72">
+    {#if data.length === 0}
+      <div class="h-full flex items-center justify-center text-slate-500">
+        <div class="text-center">
+          <div class="animate-pulse text-4xl mb-2">📊</div>
+          <p>Cargando datos...</p>
+        </div>
       </div>
-    </div>
-  {:else}
-    <div class="h-72">
+    {:else}
       <canvas bind:this={canvas}></canvas>
-    </div>
-  {/if}
+    {/if}
+  </div>
 </div>
