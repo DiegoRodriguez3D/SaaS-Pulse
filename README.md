@@ -17,10 +17,10 @@ SaaS Pulse es una aplicación de demostración que visualiza métricas de negoci
 - **4 Tarjetas KPI**: Ingresos mensuales, usuarios activos, tasa de abandono, nuevos clientes
 - **Gráfico de ingresos**: Chart.js con gradiente y animaciones suaves
 - **Selector de rango temporal**: 7 días / 30 días / 90 días
-- **Tabla de transacciones**: Datos de clientes españoles realistas
+- **Tabla de transacciones**: Datos de clientes
 - **Modo en vivo**: Auto-actualización cada 3 segundos
 - **Cambio de idioma**: Toggle español/inglés
-- **Datos españoles**: Nombres, emails y moneda en euros (€)
+- **Datos**: Nombres, emails y moneda en euros (€)
 
 ### Stack Tecnológico
 
@@ -96,10 +96,10 @@ SaaS Pulse is a demo application that visualizes simulated business metrics in r
 - **4 KPI Cards**: Monthly revenue, active users, churn rate, new customers
 - **Revenue chart**: Chart.js with gradient fill and smooth animations
 - **Time range selector**: 7 days / 30 days / 90 days
-- **Transactions table**: Realistic Spanish customer data
+- **Transactions table**: Realistic customer data
 - **Live mode**: Auto-refresh every 3 seconds
 - **Language toggle**: Spanish/English switch
-- **Spanish data**: Names, emails, and Euro currency (€)
+- **Data**: Names, emails, and Euro currency (€)
 
 ### Tech Stack
 
