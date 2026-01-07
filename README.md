@@ -1,0 +1,159 @@
+# SaaS Pulse 📊
+
+**Panel de métricas SaaS en tiempo real** | **Real-time SaaS metrics dashboard**
+
+![Dashboard Screenshot](./screenshot.png)
+
+---
+
+## 🇪🇸 Español
+
+### Descripción
+
+SaaS Pulse es una aplicación de demostración que visualiza métricas de negocio simuladas en tiempo real. Desarrollada para demostrar competencias Full Stack con FastAPI y SvelteKit.
+
+### Características
+
+- **4 Tarjetas KPI**: Ingresos mensuales, usuarios activos, tasa de abandono, nuevos clientes
+- **Gráfico de ingresos**: Chart.js con gradiente y animaciones suaves
+- **Selector de rango temporal**: 7 días / 30 días / 90 días
+- **Tabla de transacciones**: Datos de clientes españoles realistas
+- **Modo en vivo**: Auto-actualización cada 3 segundos
+- **Cambio de idioma**: Toggle español/inglés
+- **Datos españoles**: Nombres, emails y moneda en euros (€)
+
+### Stack Tecnológico
+
+#### Backend
+| Tecnología | Uso |
+|------------|-----|
+| **Python 3.12** | Lenguaje principal |
+| **FastAPI** | Framework API REST asíncrono |
+| **Pydantic** | Validación y serialización |
+| **Pandas** | Generación de series temporales |
+
+#### Frontend
+| Tecnología | Uso |
+|------------|-----|
+| **SvelteKit** | Framework full-stack |
+| **TypeScript** | Tipado estático |
+| **Tailwind CSS v4** | Estilos utilitarios |
+| **Chart.js** | Gráficos interactivos |
+
+### Inicio Rápido
+
+```bash
+# Terminal 1 - Backend
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+
+# Terminal 2 - Frontend  
+cd frontend
+npm install
+npm run dev
+```
+
+- **Dashboard**: http://localhost:5173
+- **API Docs**: http://localhost:8000/docs
+
+### Estructura del Proyecto
+
+```
+saas-pulse/
+├── backend/
+│   ├── app/
+│   │   ├── main.py         # Endpoints FastAPI
+│   │   ├── models.py       # Esquemas Pydantic
+│   │   ├── services.py     # Lógica de generación
+│   │   └── mock_data.py    # Datos de prueba centralizados
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── lib/
+│   │   │   ├── api.ts              # Cliente API tipado
+│   │   │   ├── i18n.svelte.ts      # Traducciones ES/EN
+│   │   │   └── components/         # Componentes Svelte
+│   │   └── routes/
+│   │       └── +page.svelte        # Dashboard principal
+│   └── package.json
+├── screenshot.png
+└── README.md
+```
+
+---
+
+## 🇬🇧 English
+
+### Description
+
+SaaS Pulse is a demo application that visualizes simulated business metrics in real-time. Built to demonstrate Full Stack capabilities with FastAPI and SvelteKit.
+
+### Features
+
+- **4 KPI Cards**: Monthly revenue, active users, churn rate, new customers
+- **Revenue chart**: Chart.js with gradient fill and smooth animations
+- **Time range selector**: 7 days / 30 days / 90 days
+- **Transactions table**: Realistic Spanish customer data
+- **Live mode**: Auto-refresh every 3 seconds
+- **Language toggle**: Spanish/English switch
+- **Spanish data**: Names, emails, and Euro currency (€)
+
+### Tech Stack
+
+#### Backend
+| Technology | Purpose |
+|------------|---------|
+| **Python 3.12** | Core language |
+| **FastAPI** | Async REST API framework |
+| **Pydantic** | Validation & serialization |
+| **Pandas** | Time series data generation |
+
+#### Frontend
+| Technology | Purpose |
+|------------|---------|
+| **SvelteKit** | Full-stack framework |
+| **TypeScript** | Type-safe development |
+| **Tailwind CSS v4** | Utility-first styling |
+| **Chart.js** | Interactive charts |
+
+### Quick Start
+
+```bash
+# Terminal 1 - Backend
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+
+# Terminal 2 - Frontend
+cd frontend
+npm install
+npm run dev
+```
+
+- **Dashboard**: http://localhost:5173
+- **API Docs**: http://localhost:8000/docs
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/status` | Health check |
+| GET | `/api/kpi/summary` | Current KPIs |
+| GET | `/api/kpi/history?range=30d` | Time series data |
+| GET | `/api/transactions?limit=5` | Recent transactions |
+
+---
+
+## 📄 Licencia / License
+
+MIT License
+
+---
+
+Desarrollado con ❤️ usando FastAPI + SvelteKit  
+Built with ❤️ using FastAPI + SvelteKit
