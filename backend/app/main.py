@@ -17,14 +17,11 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# CORS configuration for frontend communication
+# CORS configuration - allow all origins for demo deployment
+# In production, replace with specific domains
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",  # Vite dev server
-        "http://localhost:4173",  # Vite preview
-        "http://127.0.0.1:5173",
-    ],
+    allow_origins=["*"],  # Allows Vercel, localhost, and any domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

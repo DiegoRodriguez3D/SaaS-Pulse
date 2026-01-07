@@ -2,7 +2,7 @@
 
 **Panel de métricas SaaS en tiempo real** | **Real-time SaaS metrics dashboard**
 
-<img width="1388" height="1295" alt="image" src="https://github.com/user-attachments/assets/cee2d3c0-183d-4d30-b4b1-ec9abcc6e358" />
+![Dashboard Screenshot](./screenshot.png)
 
 ---
 
@@ -17,10 +17,10 @@ SaaS Pulse es una aplicación de demostración que visualiza métricas de negoci
 - **4 Tarjetas KPI**: Ingresos mensuales, usuarios activos, tasa de abandono, nuevos clientes
 - **Gráfico de ingresos**: Chart.js con gradiente y animaciones suaves
 - **Selector de rango temporal**: 7 días / 30 días / 90 días
-- **Tabla de transacciones**: Datos de clientes
+- **Tabla de transacciones**: Datos de clientes españoles realistas
 - **Modo en vivo**: Auto-actualización cada 3 segundos
 - **Cambio de idioma**: Toggle español/inglés
-- **Datos**: Nombres, emails y moneda en euros (€)
+- **Datos españoles**: Nombres, emails y moneda en euros (€)
 
 ### Stack Tecnológico
 
@@ -40,7 +40,7 @@ SaaS Pulse es una aplicación de demostración que visualiza métricas de negoci
 | **Tailwind CSS v4** | Estilos utilitarios |
 | **Chart.js** | Gráficos interactivos |
 
-### Inicio Rápido
+### Inicio Rápido (Desarrollo)
 
 ```bash
 # Terminal 1 - Backend
@@ -58,6 +58,22 @@ npm run dev
 
 - **Dashboard**: http://localhost:5173
 - **API Docs**: http://localhost:8000/docs
+
+### Despliegue en Producción
+
+#### Backend (Render)
+1. Crear nuevo Web Service en Render
+2. Conectar el repositorio
+3. Configurar:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - **Root Directory**: `backend`
+
+#### Frontend (Vercel)
+1. Importar proyecto en Vercel
+2. Configurar:
+   - **Root Directory**: `frontend`
+   - **Environment Variable**: `VITE_API_URL` = URL de tu backend en Render
 
 ### Estructura del Proyecto
 
@@ -78,6 +94,7 @@ saas-pulse/
 │   │   │   └── components/         # Componentes Svelte
 │   │   └── routes/
 │   │       └── +page.svelte        # Dashboard principal
+│   ├── .env.example                # Variables de entorno
 │   └── package.json
 ├── screenshot.png
 └── README.md
@@ -96,10 +113,10 @@ SaaS Pulse is a demo application that visualizes simulated business metrics in r
 - **4 KPI Cards**: Monthly revenue, active users, churn rate, new customers
 - **Revenue chart**: Chart.js with gradient fill and smooth animations
 - **Time range selector**: 7 days / 30 days / 90 days
-- **Transactions table**: Realistic customer data
+- **Transactions table**: Realistic Spanish customer data
 - **Live mode**: Auto-refresh every 3 seconds
 - **Language toggle**: Spanish/English switch
-- **Data**: Names, emails, and Euro currency (€)
+- **Spanish data**: Names, emails, and Euro currency (€)
 
 ### Tech Stack
 
@@ -119,7 +136,7 @@ SaaS Pulse is a demo application that visualizes simulated business metrics in r
 | **Tailwind CSS v4** | Utility-first styling |
 | **Chart.js** | Interactive charts |
 
-### Quick Start
+### Quick Start (Development)
 
 ```bash
 # Terminal 1 - Backend
@@ -137,6 +154,22 @@ npm run dev
 
 - **Dashboard**: http://localhost:5173
 - **API Docs**: http://localhost:8000/docs
+
+### Production Deployment
+
+#### Backend (Render)
+1. Create new Web Service on Render
+2. Connect repository
+3. Configure:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - **Root Directory**: `backend`
+
+#### Frontend (Vercel)
+1. Import project on Vercel
+2. Configure:
+   - **Root Directory**: `frontend`
+   - **Environment Variable**: `VITE_API_URL` = Your Render backend URL
 
 ### API Endpoints
 
