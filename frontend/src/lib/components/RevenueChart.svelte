@@ -29,6 +29,7 @@
   }: Props = $props();
 
   let canvas: HTMLCanvasElement;
+  
   let chart: Chart | null = null;
   let mounted = $state(false);
 
