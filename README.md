@@ -2,9 +2,6 @@
 
 **Panel de métricas SaaS en tiempo real** | **Real-time SaaS metrics dashboard**
 
-<img width="1437" height="1230" alt="image" src="https://github.com/user-attachments/assets/18566032-ba8e-4e9c-bdd6-8a63577c8434" />
-
-
 ---
 
 ## 🇪🇸 Español
@@ -74,6 +71,14 @@ saas-pulse/
 
 ---
 
+### 📄 Licencia
+
+MIT License
+
+---
+
+Desarrollado con ❤️ usando FastAPI + SvelteKit  
+
 ## 🇬🇧 English
 
 ### Description
@@ -125,11 +130,10 @@ The backend is deployed on a free Render instance. If the application has been i
 
 ---
 
-## 📄 Licencia / License
+### 📄 License
 
 MIT License
 
 ---
 
-Desarrollado con ❤️ usando FastAPI + SvelteKit  
 Built with ❤️ using FastAPI + SvelteKit
