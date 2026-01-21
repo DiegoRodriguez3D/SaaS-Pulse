@@ -25,6 +25,7 @@ interface Translations {
     pending: string;
     footer: string;
     currency: string;
+    backToPortfolio: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -49,6 +50,7 @@ const translations: Record<Language, Translations> = {
         pending: 'pendiente',
         footer: 'Desarrollado con FastAPI + SvelteKit',
         currency: '€',
+        backToPortfolio: 'Volver al Portfolio',
     },
     en: {
         title: 'SaaS Pulse',
@@ -71,6 +73,7 @@ const translations: Record<Language, Translations> = {
         pending: 'pending',
         footer: 'Built with FastAPI + SvelteKit',
         currency: '€',
+        backToPortfolio: 'Back to Portfolio',
     }
 };
 
